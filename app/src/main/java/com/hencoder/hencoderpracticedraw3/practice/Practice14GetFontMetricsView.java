@@ -42,14 +42,17 @@ public class Practice14GetFontMetricsView extends View {
 
         // 使用 Paint.getFontMetrics() 计算出文字的显示区域
         // 然后计算出文字的绘制位置，从而让文字上下居中
+
         // 这种居中算法的优点是，可以让不同的文字的 baseline 对齐
+        Paint.FontMetrics metrics=paint2.getFontMetrics();
+        float offset=-(metrics.ascent+metrics.descent)/2;
 
         int middle = (top + bottom) / 2;
-        canvas.drawText(texts[0], 100, middle, paint2);
-        canvas.drawText(texts[1], 200, middle, paint2);
-        canvas.drawText(texts[2], 300, middle, paint2);
-        canvas.drawText(texts[3], 400, middle, paint2);
-        canvas.drawText(texts[4], 500, middle, paint2);
-        canvas.drawText(texts[5], 600, middle, paint2);
+        canvas.drawText(texts[0], 100, middle+offset, paint2);
+        canvas.drawText(texts[1], 200, middle+offset, paint2);
+        canvas.drawText(texts[2], 300, middle+offset, paint2);
+        canvas.drawText(texts[3], 400, middle+offset, paint2);
+        canvas.drawText(texts[4], 500, middle+offset, paint2);
+        canvas.drawText(texts[5], 600, middle+offset, paint2);
     }
 }
